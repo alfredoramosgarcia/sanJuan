@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>San Juan</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <video autoplay loop muted id="video-bg">
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+    <div class="counter" id="counter">0</div>
+  </div>
+ <script>
+  const targetDate = new Date("2025-06-26"); // <-- Cambia esta fecha si quieres
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      document.getElementById("counter").innerText = "¡Feliz Año!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("counter").innerText =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown(); // Inicial
+  setInterval(updateCountdown, 1000); // Actualizar cada segundo
+</script>
+
+</body>
+</html>
