@@ -41,7 +41,7 @@ body, html {
 /* ========== Contador centrado ========== */
 .counter {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -68,7 +68,7 @@ body, html {
 /* ========== Tracklist ========== */
 .tracklist {
   position: absolute;
-  top: 60%;
+  top: 55%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -120,7 +120,8 @@ body, html {
 @media (max-width: 600px) {
   .counter {
     font-size: 8vw;
-    padding: 4vh 8vw;
+    padding: 4vh 4vw;
+    top: 35%
   }
 
   .overlay-image {
@@ -130,20 +131,21 @@ body, html {
 
   .tracklist {
     flex-direction: column;
-    align-items: center;
-    gap: 2vh;
-    top: 65%;
+    align-items: flex-start; 
+    top: 43%;
     transform: translateX(-50%);
+    padding-left: 10vw; 
+    gap: 0; 
   }
 
   .track-column {
-    width: 100%;
-    align-items: center;
-    margin-bottom: 2vh;
+    width: 80%;
+    align-items: flex-start; 
+    display: contents;
   }
 
   .track {
-    font-size: 4.5vw;
+    font-size: 4vw;
     margin: 0.7vh 0;
   }
 
