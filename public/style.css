@@ -41,7 +41,6 @@ body, html {
   font-size: 4vw;
   font-weight: bold;
   text-align: center;
-  backdrop-filter: blur(5px);
 }
 
 /* Media query para móviles */
@@ -54,13 +53,13 @@ body, html {
 
 .tracklist {
   position: absolute;
-  top: 68%;
+  top: 60%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;
-  gap: 4vw;
-  font-family: 'Orbitron', sans-serif;
+  gap: 6vw;
+  font-family: 'Dancing on the Beach';
 }
 
 .track-column {
@@ -71,7 +70,7 @@ body, html {
 
 .track {
   margin: 0.3em 0;
-  font-size: 1vw;
+  font-size: 1.2vw;
   color: white;
   white-space: nowrap;
 }
@@ -79,6 +78,7 @@ body, html {
 .track-number {
   font-weight: bold;
   margin-right: 0.3em;
+  font-size: 1;
 }
 
 .track-name.blur {
@@ -95,7 +95,7 @@ body, html {
   border: 1px solid white;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 0.7vw;
+  font-size: 1vw;
 }
 
 .listen-button:hover {
