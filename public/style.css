@@ -94,6 +94,10 @@ body, html {
 .track-number {
   font-weight: bold;
   margin-right: 0.3em;
+  text-align: right;
+  display: inline-block;
+  width: 2em; 
+
 }
 
 .track-name.blur {
