@@ -126,8 +126,8 @@ body, html {
 }
 
 .track-name.blur {
-  filter: blur(4px);
-  opacity: 0.4;
+  filter: blur(10px);
+  opacity: 0.6;
   pointer-events: none;
 }
 
