@@ -31,6 +31,15 @@ app.post('/check-password', (req, res) => {
   }
 });
 
+app.get('/get-target-date', (req, res) => {
+  const date = process.env.TARGET_DATE;
+  if (date) {
+    res.json({ date });
+  } else {
+    res.status(500).json({ error: 'TARGET_DATE no definida en .env' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

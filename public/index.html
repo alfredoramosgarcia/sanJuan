@@ -63,7 +63,19 @@
   </div>
 
   <script>
-    const targetDate = new Date("2025-06-26T20:00:00");
+    let targetDate;
+
+    fetch('/get-target-date')
+      .then(res => res.json())
+      .then(data => {
+        targetDate = new Date(data.date);
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      })
+      .catch(err => {
+        console.error('Error cargando fecha objetivo:', err);
+      });
+
     let unlocked = false;
     let attempts = 0;
     const hints = [
@@ -73,6 +85,8 @@
     ];
 
     function updateCountdown() {
+      if (!targetDate) return;
+
       const now = new Date();
       const diff = targetDate.getTime() - now.getTime();
 
