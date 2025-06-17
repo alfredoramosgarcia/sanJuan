@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>San Juan</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="icon.png">
 
@@ -48,16 +48,15 @@
 </div>
 
 
-
- <script>
-  const targetDate = new Date("2025-06-26T20:00:00"); 
+<script>
+  const targetDate = new Date("2025-06-26T20:00:00");
 
   function updateCountdown() {
     const now = new Date();
     const diff = targetDate.getTime() - now.getTime();
 
     if (diff <= 0) {
-      document.getElementById("counter").innerText = "¡Feliz Año!";
+      document.getElementById("counter").innerText = "";
       return;
     }
 
@@ -66,12 +65,13 @@
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("counter").innerText =
-      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    document.getElementById("counter").innerHTML = `
+      <span class="blurred">${days}d ${hours}h ${minutes}m ${seconds}s</span>
+    `;
   }
 
-  updateCountdown(); 
-  setInterval(updateCountdown, 1000); 
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 </script>
 
 </body>
