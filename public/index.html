@@ -30,48 +30,59 @@
 		<div class="counter" id="counter">0</div>
 	</div>
 
-	<div class="tracklist">
-		<div class="track-column">
-			<div class="track"><span class="track-number">1.</span> <span class="track-name blur">11</span></div>
-			<div class="track visible">
-				<span class="track-number">2.</span> <span class="track-name">La vida bonita</span>
-				<a href="https://www.youtube.com/watch?v=WudC3NgloVI" target="_blank" class="listen-button">
-					<i class="fas fa-play"></i>
-				</a>
-			</div>
-			<div class="track visible">
-				<span class="track-number">3.</span> <span class="track-name">FOCUS</span>
-				<a href="https://www.youtube.com/watch?v=GemxqnBN2WY" target="_blank" class="listen-button">
-					<i class="fas fa-play"></i>
-				</a>
-			</div>
-			<div class="track"><span class="track-number">4.</span> <span class="track-name blur">MODOAVION ft Insert
-					Soul</span></div>
-			<div class="track"><span class="track-number">5.</span> <span class="track-name blur">santamaria.zip</span></div>
-			<div class="track"><span class="track-number">6.</span> <span class="track-name blur">IGOTINMAPOCKET$$$$</span>
-			</div>
-		</div>
-		<div class="track-column">
-			<div class="track"><span class="track-number">7.</span> <span class="track-name blur">volando bajito</span></div>
-			<div class="track"><span class="track-number">8.</span> <span class="track-name blur">MON€Y BACK ft Guilty
-					Asko</span></div>
-			<div class="track"><span class="track-number">9.</span> <span class="track-name blur">NONSTOP</span></div>
-			<div class="track"><span class="track-number">10.</span> <span class="track-name blur">Mi gente ft Seni</span>
-			</div>
-			<div class="track"><span class="track-number">11.</span> <span class="track-name blur">San Juan</span></div>
-		</div>
-	</div>
+	<div class="tracklist" id="tracklist"></div>
 
 	<script>
+		let API_KEY = '';
 		let targetDate = new Date("3333-12-31T20:00:00");
-
 		let unlocked = false;
 		let attempts = 0;
+
 		const hints = [
 			"Es una artista que participa en el disco...",
 			"Es andaluza...",
 			"Con ella puedes sumergirte en La Charca..."
 		];
+
+		function renderTracklist(tracks) {
+			const container = document.getElementById('tracklist');
+			container.innerHTML = '';
+
+			const col1 = document.createElement('div');
+			col1.className = 'track-column';
+			const col2 = document.createElement('div');
+			col2.className = 'track-column';
+
+			tracks.forEach(track => {
+				const div = document.createElement('div');
+				div.className = 'track';
+
+				const number = document.createElement('span');
+				number.className = 'track-number';
+				number.textContent = `${track.number}.`;
+
+				const name = document.createElement('span');
+				name.className = track.blurred && !unlocked ? 'track-name blur' : 'track-name';
+				name.textContent = track.blurred && !unlocked ? track.nameX : track.name;
+
+				div.appendChild(number);
+				div.appendChild(name);
+
+				if (track.url && (!track.blurred || unlocked)) {
+					const link = document.createElement('a');
+					link.href = track.url;
+					link.target = '_blank';
+					link.className = 'listen-button';
+					link.innerHTML = `<i class="fas fa-play"></i>`;
+					div.appendChild(link);
+				}
+
+				(track.number <= 6 ? col1 : col2).appendChild(div);
+			});
+
+			container.appendChild(col1);
+			container.appendChild(col2);
+		}
 
 		function updateCountdown() {
 			if (!targetDate) return;
@@ -90,17 +101,11 @@
 			const seconds = Math.floor((diff / 1000) % 60);
 
 			const countdownHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-			const counter = document.getElementById("counter");
-			if (unlocked) {
-				counter.innerHTML = `<span>${countdownHTML}</span>`;
-			} else {
-				counter.innerHTML = `<span class="blurred">${countdownHTML}</span>`;
-			}
+			document.getElementById("counter").innerHTML = `<span${unlocked ? '' : ' class="blurred"'}>${countdownHTML}</span>`;
 		}
 
-		updateCountdown();
 		setInterval(updateCountdown, 1000);
+		updateCountdown();
 
 		document.querySelector('#lockIcon').addEventListener('click', () => {
 			document.getElementById('passwordBox').style.display = 'flex';
@@ -120,36 +125,37 @@
 			try {
 				const response = await fetch('/check-password', {
 					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
+					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ password: input })
 				});
 
 				if (response.ok) {
 					unlocked = true;
 
-					fetch('/get-target-date')
-						.then(res => res.json())
-						.then(data => {
-							targetDate = new Date(data.date);
-							updateCountdown();
-							setInterval(updateCountdown, 1000);
-						})
-						.catch(err => {
-							console.error('Error cargando fecha objetivo:', err);
-						});
+					// Obtener la API key
+					const keyRes = await fetch('/3GWEH84N3I5RNR8LJNFRWEI');
+					const keyData = await keyRes.json();
+					API_KEY = keyData.apiKey;
 
+					// Obtener la fecha objetivo
+					const dateRes = await fetch('/get-target-date', {
+						headers: { 'x-api-key': API_KEY }
+					});
+					const dateData = await dateRes.json();
+					targetDate = new Date(dateData.date);
+
+					// Actualizar contador y ocultar caja
+					updateCountdown();
 					document.getElementById('passwordBox').style.display = 'none';
 					document.querySelector('.badge').style.display = 'none';
 					document.getElementById('lockIcon').style.display = 'none';
 				} else {
-					// MOSTRAR PISTA
 					if (attempts < hints.length) {
 						showHint(hints[attempts]);
 					} else {
+						showHint("Demasiados intentos... 😵");
 						setTimeout(() => {
-							window.location.href = "https://www.youtube.com/watch?v=41CMObnPeSQ&t=23s&ab_channel=JuanCortes";
+							window.location.href = "https://www.youtube.com/watch?v=41CMObnPeSQ&t=23s";
 						}, 2000);
 					}
 					attempts++;
@@ -160,7 +166,22 @@
 			}
 		}
 
-
+		// Obtener tracklist al cargar
+		fetch('/3GWEH84N3I5RNR8LJNFRWEI')
+			.then(res => res.json())
+			.then(keyData => {
+				API_KEY = keyData.apiKey;
+				return fetch('/tracklist', {
+					headers: { 'x-api-key': API_KEY }
+				});
+			})
+			.then(res => res.json())
+			.then(tracks => {
+				renderTracklist(tracks);
+			})
+			.catch(err => {
+				console.error('Error al cargar tracklist:', err);
+			});
 	</script>
 </body>
 
