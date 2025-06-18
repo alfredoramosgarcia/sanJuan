@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Middleware para validar API key
+// Middleware para validar API key en rutas privadas del backend
 function validateApiKey(req: express.Request, res: express.Response, next: express.NextFunction) {
 	const apiKey = req.headers['x-api-key'];
 	if (apiKey === process.env.API_KEY) {
@@ -22,7 +22,7 @@ function validateApiKey(req: express.Request, res: express.Response, next: expre
 	}
 }
 
-// Rutas API protegidas
+// Rutas protegidas
 app.post('/check-password', (req, res) => {
 	const { password } = req.body;
 	if (password === process.env.PASSWORD) {
@@ -32,7 +32,7 @@ app.post('/check-password', (req, res) => {
 	}
 });
 
-app.get('/get-target-date', validateApiKey, (req, res) => {
+app.get('/get-target-date', (req, res) => {
 	const date = process.env.TARGET_DATE;
 	if (date) {
 		res.json({ date });
@@ -41,7 +41,7 @@ app.get('/get-target-date', validateApiKey, (req, res) => {
 	}
 });
 
-app.get('/tracklist', validateApiKey, (req, res) => {
+app.get('/tracklist', (req, res) => {
 	const filePath = path.join(__dirname, '../data/tracklist.json');
 	fs.readFile(filePath, 'utf8', (err, data) => {
 		if (err) return res.status(500).json({ error: 'No se pudo leer el tracklist' });
@@ -49,19 +49,19 @@ app.get('/tracklist', validateApiKey, (req, res) => {
 	});
 });
 
-// Inyectar API key en el HTML de forma controlada
+// Servir el HTML (sin inyectar variables en el frontend)
 app.get('/', (req, res) => {
-	const html = fs.readFileSync(path.join(__dirname, '..', 'public', 'index.html'), 'utf8');
-	const injected = html.replace(
-		'</head>',
-		`<script>window.API_KEY="${process.env.API_KEY}"</script></head>`
-	);
-	res.send(injected);
+	const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
+	fs.readFile(htmlPath, 'utf8', (err, html) => {
+		if (err) return res.status(500).send('Error cargando HTML');
+		res.send(html);
+	});
 });
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+// Arrancar servidor
 app.listen(PORT, () => {
 	console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

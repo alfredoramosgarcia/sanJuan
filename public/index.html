@@ -33,7 +33,6 @@
 	<div class="tracklist" id="tracklist"></div>
 
 	<script>
-		const API_KEY = window.API_KEY || '';
 		let targetDate = new Date("3333-12-31T20:00:00");
 		let unlocked = false;
 		let attempts = 0;
@@ -63,7 +62,7 @@
 
 				const name = document.createElement('span');
 				name.className = track.blurred && !unlocked ? 'track-name blur' : 'track-name';
-				name.textContent = track.blurred && !unlocked ? track.nameX : track.name;
+				name.textContent = track.blurred && !unlocked ? '••••••' : track.name;
 
 				div.appendChild(number);
 				div.appendChild(name);
@@ -132,9 +131,7 @@
 				if (response.ok) {
 					unlocked = true;
 
-					const dateRes = await fetch('/get-target-date', {
-						headers: { 'x-api-key': API_KEY }
-					});
+					const dateRes = await fetch('/get-target-date');
 					const dateData = await dateRes.json();
 					targetDate = new Date(dateData.date);
 
@@ -142,6 +139,9 @@
 					document.getElementById('passwordBox').style.display = 'none';
 					document.querySelector('.badge').style.display = 'none';
 					document.getElementById('lockIcon').style.display = 'none';
+
+					// Vuelve a cargar el tracklist ya desbloqueado
+					loadTracklist();
 				} else {
 					if (attempts < hints.length) {
 						showHint(hints[attempts]);
@@ -159,16 +159,19 @@
 			}
 		}
 
-		// Obtener tracklist al cargar
-		fetch('/tracklist', {
-			headers: { 'x-api-key': API_KEY }
-		})
-			.then(res => res.json())
-			.then(tracks => renderTracklist(tracks))
-			.catch(err => {
-				console.error('Error al cargar tracklist:', err);
-			});
+		function loadTracklist() {
+			fetch('/tracklist')
+				.then(res => res.json())
+				.then(tracks => renderTracklist(tracks))
+				.catch(err => {
+					console.error('Error al cargar tracklist:', err);
+				});
+		}
+
+		// Llamada inicial
+		loadTracklist();
 	</script>
+
 </body>
 
 </html>
