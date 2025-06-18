@@ -2,167 +2,167 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>San Juan</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="icon" href="icon.png" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>San Juan</title>
+	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	<link rel="icon" href="icon.png" />
 </head>
 
 <body>
-  <div class="container">
-    <img src="icon.png" class="overlay-image" />
-    <video autoplay loop muted playsinline id="video-bg">
-      <source src="video.mp4" type="video/mp4" />
-      Tu navegador no soporta la etiqueta de video.
-    </video>
+	<div class="container">
+		<img src="icon.png" class="overlay-image" />
+		<video autoplay loop muted playsinline id="video-bg">
+			<source src="video.mp4" type="video/mp4" />
+			Tu navegador no soporta la etiqueta de video.
+		</video>
 
-    <div class="badge">Countdown Blocked</div>
-    <i class="fas fa-lock lock-icon" id="lockIcon"></i>
+		<div class="badge">Countdown Blocked</div>
+		<i class="fas fa-lock lock-icon" id="lockIcon"></i>
 
-    <div class="password-box" id="passwordBox">
-      <input type="text" id="passwordInput" placeholder="Contraseña" />
-      <button onclick="checkPassword()">Enter</button>
-    </div>
+		<div class="password-box" id="passwordBox">
+			<input type="text" id="passwordInput" placeholder="Contraseña" />
+			<button onclick="checkPassword()">Enter</button>
+		</div>
 
-    <div class="counter" id="counter">0</div>
-  </div>
+		<div class="counter" id="counter">0</div>
+	</div>
 
-  <div class="tracklist">
-    <div class="track-column">
-      <div class="track"><span class="track-number">1.</span> <span class="track-name blur">11</span></div>
-      <div class="track visible">
-        <span class="track-number">2.</span> <span class="track-name">La vida bonita</span>
-        <a href="https://www.youtube.com/watch?v=WudC3NgloVI" target="_blank" class="listen-button">
-          <i class="fas fa-play"></i>
-        </a>
-      </div>
-      <div class="track visible">
-        <span class="track-number">3.</span> <span class="track-name">FOCUS</span>
-        <a href="https://www.youtube.com/watch?v=GemxqnBN2WY" target="_blank" class="listen-button">
-          <i class="fas fa-play"></i>
-        </a>
-      </div>
-      <div class="track"><span class="track-number">4.</span> <span class="track-name blur">MODOAVION ft Insert
-          Soul</span></div>
-      <div class="track"><span class="track-number">5.</span> <span class="track-name blur">santamaria.zip</span></div>
-      <div class="track"><span class="track-number">6.</span> <span class="track-name blur">IGOTINMAPOCKET$$$$</span>
-      </div>
-    </div>
-    <div class="track-column">
-      <div class="track"><span class="track-number">7.</span> <span class="track-name blur">volando bajito</span></div>
-      <div class="track"><span class="track-number">8.</span> <span class="track-name blur">MON€Y BACK ft Guilty
-          Asko</span></div>
-      <div class="track"><span class="track-number">9.</span> <span class="track-name blur">NONSTOP</span></div>
-      <div class="track"><span class="track-number">10.</span> <span class="track-name blur">Mi gente ft Seni</span>
-      </div>
-      <div class="track"><span class="track-number">11.</span> <span class="track-name blur">San Juan</span></div>
-    </div>
-  </div>
+	<div class="tracklist">
+		<div class="track-column">
+			<div class="track"><span class="track-number">1.</span> <span class="track-name blur">11</span></div>
+			<div class="track visible">
+				<span class="track-number">2.</span> <span class="track-name">La vida bonita</span>
+				<a href="https://www.youtube.com/watch?v=WudC3NgloVI" target="_blank" class="listen-button">
+					<i class="fas fa-play"></i>
+				</a>
+			</div>
+			<div class="track visible">
+				<span class="track-number">3.</span> <span class="track-name">FOCUS</span>
+				<a href="https://www.youtube.com/watch?v=GemxqnBN2WY" target="_blank" class="listen-button">
+					<i class="fas fa-play"></i>
+				</a>
+			</div>
+			<div class="track"><span class="track-number">4.</span> <span class="track-name blur">MODOAVION ft Insert
+					Soul</span></div>
+			<div class="track"><span class="track-number">5.</span> <span class="track-name blur">santamaria.zip</span></div>
+			<div class="track"><span class="track-number">6.</span> <span class="track-name blur">IGOTINMAPOCKET$$$$</span>
+			</div>
+		</div>
+		<div class="track-column">
+			<div class="track"><span class="track-number">7.</span> <span class="track-name blur">volando bajito</span></div>
+			<div class="track"><span class="track-number">8.</span> <span class="track-name blur">MON€Y BACK ft Guilty
+					Asko</span></div>
+			<div class="track"><span class="track-number">9.</span> <span class="track-name blur">NONSTOP</span></div>
+			<div class="track"><span class="track-number">10.</span> <span class="track-name blur">Mi gente ft Seni</span>
+			</div>
+			<div class="track"><span class="track-number">11.</span> <span class="track-name blur">San Juan</span></div>
+		</div>
+	</div>
 
-  <script>
-    let targetDate;
+	<script>
+		let targetDate = new Date("3333-12-31T20:00:00");
 
-    fetch('/get-target-date')
-      .then(res => res.json())
-      .then(data => {
-        targetDate = new Date(data.date);
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-      })
-      .catch(err => {
-        console.error('Error cargando fecha objetivo:', err);
-      });
+		let unlocked = false;
+		let attempts = 0;
+		const hints = [
+			"Es una artista que participa en el disco...",
+			"Es andaluza...",
+			"Con ella puedes sumergirte en La Charca..."
+		];
 
-    let unlocked = false;
-    let attempts = 0;
-    const hints = [
-      "Es una artista que participa en el disco...",
-      "Es andaluza...",
-      "Con ella puedes sumergirte en La Charca..."
-    ];
+		function updateCountdown() {
+			if (!targetDate) return;
 
-    function updateCountdown() {
-      if (!targetDate) return;
+			const now = new Date();
+			const diff = targetDate.getTime() - now.getTime();
 
-      const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
+			if (diff <= 0) {
+				document.getElementById("counter").innerText = "";
+				return;
+			}
 
-      if (diff <= 0) {
-        document.getElementById("counter").innerText = "";
-        return;
-      }
+			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+			const minutes = Math.floor((diff / (1000 * 60)) % 60);
+			const seconds = Math.floor((diff / 1000) % 60);
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+			const countdownHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-      const countdownHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+			const counter = document.getElementById("counter");
+			if (unlocked) {
+				counter.innerHTML = `<span>${countdownHTML}</span>`;
+			} else {
+				counter.innerHTML = `<span class="blurred">${countdownHTML}</span>`;
+			}
+		}
 
-      const counter = document.getElementById("counter");
-      if (unlocked) {
-        counter.innerHTML = `<span>${countdownHTML}</span>`;
-      } else {
-        counter.innerHTML = `<span class="blurred">${countdownHTML}</span>`;
-      }
-    }
+		updateCountdown();
+		setInterval(updateCountdown, 1000);
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+		document.querySelector('#lockIcon').addEventListener('click', () => {
+			document.getElementById('passwordBox').style.display = 'flex';
+		});
 
-    document.querySelector('#lockIcon').addEventListener('click', () => {
-      document.getElementById('passwordBox').style.display = 'flex';
-    });
+		function showHint(text) {
+			const hint = document.createElement('div');
+			hint.className = 'hint';
+			hint.innerText = text;
+			document.body.appendChild(hint);
+			setTimeout(() => hint.remove(), 2000);
+		}
 
-    function showHint(text) {
-      const hint = document.createElement('div');
-      hint.className = 'hint';
-      hint.innerText = text;
-      document.body.appendChild(hint);
-      setTimeout(() => hint.remove(), 2000);
-    }
+		async function checkPassword() {
+			const input = document.getElementById('passwordInput').value;
 
-    async function checkPassword() {
-      const input = document.getElementById('passwordInput').value;
+			try {
+				const response = await fetch('/check-password', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ password: input })
+				});
 
-      try {
-        const response = await fetch('/check-password', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ password: input })
-        });
+				if (response.ok) {
+					unlocked = true;
 
-        if (response.ok) {
-          unlocked = true;
-          updateCountdown();
-          document.getElementById('passwordBox').style.display = 'none';
-          document.querySelector('.badge').style.display = 'none';
-          document.getElementById('lockIcon').style.display = 'none';
-        } else {
-          // MOSTRAR PISTA
-          if (attempts < hints.length) {
-            showHint(hints[attempts]);
-          } else {
-            showHint("Demasiados intentos... 😵 Redirigiendo");
-            setTimeout(() => {
-              window.location.href = "https://www.youtube.com/watch?v=41CMObnPeSQ&t=23s&ab_channel=JuanCortes";
-            }, 2000);
-          }
-          attempts++;
-        }
-      } catch (err) {
-        console.error('Error al verificar contraseña:', err);
-        alert("Error de conexión.");
-      }
-    }
+					fetch('/get-target-date')
+						.then(res => res.json())
+						.then(data => {
+							targetDate = new Date(data.date);
+							updateCountdown();
+							setInterval(updateCountdown, 1000);
+						})
+						.catch(err => {
+							console.error('Error cargando fecha objetivo:', err);
+						});
+
+					document.getElementById('passwordBox').style.display = 'none';
+					document.querySelector('.badge').style.display = 'none';
+					document.getElementById('lockIcon').style.display = 'none';
+				} else {
+					// MOSTRAR PISTA
+					if (attempts < hints.length) {
+						showHint(hints[attempts]);
+					} else {
+						showHint("Demasiados intentos... 😵 Redirigiendo");
+						setTimeout(() => {
+							window.location.href = "https://www.youtube.com/watch?v=41CMObnPeSQ&t=23s&ab_channel=JuanCortes";
+						}, 2000);
+					}
+					attempts++;
+				}
+			} catch (err) {
+				console.error('Error al verificar contraseña:', err);
+				alert("Error de conexión.");
+			}
+		}
 
 
-  </script>
+	</script>
 </body>
 
 </html>
