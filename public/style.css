@@ -9,7 +9,7 @@ body,
 html {
 	height: 100%;
 	font-family: 'Orbitron';
-	overflow: auto;
+	overflow: hidden;
 	background-color: black;
 }
 
@@ -41,19 +41,18 @@ html {
 	padding: 4vh 10vw;
 	border-radius: 15px;
 	color: white;
-	font-size: clamp(24px, 4vw, 48px);
+	font-size: 4vw;
 	font-weight: bold;
 	text-align: center;
 	white-space: nowrap;
-	overflow: visible;
+	overflow: hidden;
 }
 
-.blurred {
+.counter .blurred {
 	filter: blur(14px);
 	display: inline-block;
 }
 
-/* ========== Badge ========== */
 .badge {
 	position: absolute;
 	top: 43%;
@@ -62,7 +61,7 @@ html {
 	background-color: #ff3b3b;
 	color: white;
 	padding: 0.5em 1.2em;
-	font-size: clamp(14px, 1.2vw, 24px);
+	font-size: 1.2vw;
 	font-weight: bold;
 	border-radius: 8px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -72,13 +71,12 @@ html {
 	animation: pulse 1.5s infinite;
 }
 
-/* ========== Lock icon ========== */
 .lock-icon {
 	position: absolute;
 	top: 46%;
 	left: 62%;
 	transform: translateY(-50%);
-	font-size: clamp(16px, 1.5vw, 32px);
+	font-size: 1.5vw;
 	color: white;
 	z-index: 11;
 	transition: transform 0.3s ease;
@@ -89,7 +87,54 @@ html {
 	transform: translateY(-50%) rotate(20deg);
 }
 
-/* ========== Password box ========== */
+.password-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(255, 230, 0, 0.8);
+	padding: 1em;
+	border-radius: 10px;
+}
+
+.password-box input {
+	padding: 0.5em;
+	font-size: 1vw;
+	margin-bottom: 0.5em;
+	border-radius: 5px;
+	border: none;
+}
+
+.password-box button {
+	padding: 0.4em 1em;
+	font-size: 1vw;
+	background-color: #ff3b3b;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.lock-icon {
+	position: absolute;
+	top: 40%;
+	left: 60%;
+	transform: translateY(-50%);
+	font-size: 1.5vw;
+	color: white;
+	z-index: 11;
+	transition: transform 0.3s ease;
+	cursor: pointer;
+}
+
+.lock-icon:hover {
+	transform: translateY(-50%) rotate(20deg);
+}
+
 .password-box {
 	position: absolute;
 	top: 50%;
@@ -100,24 +145,21 @@ html {
 	flex-direction: column;
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.8);
-	padding: 2em;
+	padding: 1em;
 	border-radius: 10px;
-	width: clamp(250px, 40vw, 500px);
-	font-size: clamp(14px, 1.2vw, 24px);
 }
 
 .password-box input {
 	padding: 0.5em;
-	font-size: clamp(14px, 1vw, 20px);
+	font-size: 1vw;
 	margin-bottom: 0.5em;
 	border-radius: 5px;
 	border: none;
-	width: 100%;
 }
 
 .password-box button {
 	padding: 0.4em 1em;
-	font-size: clamp(14px, 1vw, 20px);
+	font-size: 1vw;
 	background-color: #ff3b3b;
 	color: white;
 	border: none;
@@ -125,7 +167,11 @@ html {
 	cursor: pointer;
 }
 
-/* ========== Hint / aviso flotante ========== */
+.blurred {
+	filter: blur(14px);
+	display: inline-block;
+}
+
 .hint {
 	position: absolute;
 	top: 40%;
@@ -133,13 +179,12 @@ html {
 	transform: translateX(-50%);
 	color: #ff0000;
 	font-weight: bold;
-	font-size: clamp(14px, 1.2vw, 24px);
+	font-size: 1.2vw;
 	z-index: 9999;
 	opacity: 1;
 	animation: floatUp 6s ease-out forwards;
 }
 
-/* ========== Animaciones ========== */
 @keyframes floatUp {
 	0% {
 		transform: translate(-50%, 0%);
@@ -169,6 +214,7 @@ html {
 	}
 }
 
+
 /* ========== Imagen decorativa sobre contador ========== */
 .overlay-image {
 	position: absolute;
@@ -176,7 +222,7 @@ html {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 3;
-	width: clamp(200px, 40vw, 700px);
+	width: 40vw;
 	pointer-events: none;
 	filter: brightness(0) invert(1);
 }
@@ -202,7 +248,7 @@ html {
 
 .track {
 	margin: 0.3em 0;
-	font-size: clamp(14px, 1.2vw, 24px);
+	font-size: 1.2vw;
 	color: white;
 	white-space: nowrap;
 }
@@ -214,6 +260,7 @@ html {
 	text-align: right;
 	display: inline-block;
 	width: 2em;
+
 }
 
 .track-name.blur {
@@ -230,7 +277,7 @@ html {
 	border: 1px solid white;
 	border-radius: 4px;
 	text-decoration: none;
-	font-size: clamp(12px, 1vw, 20px);
+	font-size: 1vw;
 }
 
 .listen-button:hover {
@@ -240,35 +287,194 @@ html {
 /* ========== Responsive Móvil ========== */
 @media (max-width: 600px) {
 	.counter {
+		position: absolute;
 		top: 30%;
-		font-size: clamp(24px, 7vw, 60px);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		padding: 4vh 10vw;
+		border-radius: 15px;
+		color: white;
+		font-size: 7vw;
+		font-weight: bold;
+		text-align: center;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	.counter .blurred {
+		filter: blur(14px);
+		display: inline-block;
 	}
 
 	.badge {
+		display: inline-block;
 		top: 30%;
-		font-size: clamp(14px, 2.85vw, 30px);
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #ff3b3b;
+		color: white;
+		padding: 0.5em 1.2em;
+		font-size: 2.85vw;
+		font-weight: bold;
+		border-radius: 8px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+		z-index: 10;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		animation: pulse 1.5s infinite;
 	}
 
 	.lock-icon {
-		top: 28%;
-		left: 78%;
-		font-size: clamp(20px, 4vw, 40px);
+		top: 27%;
+		left: 62%;
+		transform: translateY(-50%);
+		font-size: 1.5vw;
+		color: white;
+		z-index: 11;
+		transition: transform 0.3s ease;
+		cursor: pointer;
+	}
+
+	.lock-icon:hover {
+		transform: translateY(-50%) rotate(20deg);
 	}
 
 	.password-box {
-		top: 32%;
-		width: 80vw;
-		font-size: clamp(16px, 3vw, 24px);
+		display: inline-block;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(2.0);
+		z-index: 9999;
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgba(255, 230, 0, 0.8);
+		padding: 1em;
+		border-radius: 10px;
 	}
 
-	.password-box input,
+	.password-box input {
+		padding: 0.5em;
+		font-size: 1vw;
+		margin-bottom: 0.5em;
+		border-radius: 5px;
+		border: none;
+	}
+
 	.password-box button {
-		font-size: clamp(14px, 3vw, 24px);
+		padding: 0.4em 1em;
+		font-size: 1vw;
+		background-color: #ff3b3b;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.lock-icon {
+		position: absolute;
+		top: 28%;
+		/* puedes ajustar esto */
+		left: 78%;
+		/* y esto también */
+		transform: translate(-50%, -50%);
+		font-size: 4vw;
+		/* aumentamos de 1.5vw a 3vw */
+		color: white;
+		z-index: 11;
+		transition: transform 0.3s ease;
+		cursor: pointer;
+	}
+
+
+	.lock-icon:hover {
+		transform: translateY(-50%) rotate(20deg);
+	}
+
+	.password-box {
+		position: absolute;
+		top: 32%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 9999;
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.8);
+		padding: 2em;
+		border-radius: 10px;
+		width: 40vw;
+		/* ancho proporcional a la ventana */
+		font-size: 2vw;
+		/* agranda texto */
+	}
+
+	.password-box input {
+		padding: 0.5em;
+		font-size: 2vw;
+		margin-bottom: 0.5em;
+		border-radius: 5px;
+		border: none;
+	}
+
+	.password-box button {
+		padding: 0.4em 1em;
+		font-size: 2vw;
+		background-color: #ff3b3b;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.blurred {
+		filter: blur(14px);
+		display: inline-block;
 	}
 
 	.hint {
-		font-size: clamp(14px, 2vw, 24px);
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translateX(-50%);
+		color: #ff0000;
+		font-weight: bold;
+		font-size: 2vw;
+		z-index: 9999;
+		opacity: 1;
+		animation: floatUp 6s ease-out forwards;
 	}
+
+	@keyframes floatUp {
+		0% {
+			transform: translate(-50%, 0%);
+			opacity: 1;
+		}
+
+		100% {
+			transform: translate(-50%, -150%);
+			opacity: 0;
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			transform: translateX(-50%) scale(1);
+			opacity: 1;
+		}
+
+		50% {
+			transform: translateX(-50%) scale(1.05);
+			opacity: 0.85;
+		}
+
+		100% {
+			transform: translateX(-50%) scale(1);
+			opacity: 1;
+		}
+	}
+
 
 	.overlay-image {
 		width: 70vw;
@@ -279,22 +485,25 @@ html {
 		flex-direction: column;
 		align-items: flex-start;
 		top: 40%;
+		transform: translateX(-50%);
 		padding-left: 10vw;
 		gap: 0;
+		font-family: 'Orbitron';
 	}
 
 	.track-column {
 		width: 80%;
+		align-items: flex-start;
 		display: contents;
 	}
 
 	.track {
-		font-size: clamp(18px, 4vw, 28px);
+		font-size: 4vw;
 		margin: 0.7vh 0;
 	}
 
 	.listen-button {
-		font-size: clamp(14px, 3.5vw, 22px);
+		font-size: 3.5vw;
 		padding: 0.3em 0.7em;
 	}
 }
