@@ -9,21 +9,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
+function validateApiKey(req: express.Request, res: express.Response, next: express.NextFunction) {
+	const apiKey = req.headers['x-api-key'];
+	if (apiKey === process.env.API_KEY) {
+		next();
+	} else {
+		res.status(403).json({ error: 'Acceso denegado. API key inválida.' });
+	}
+}
 
-
-// Ruta principal
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
-});
-
-// Verificación de contraseña sin tipos explícitos
+// ✅ Rutas API protegidas
 app.post('/check-password', (req, res) => {
 	const { password } = req.body;
-
 	if (password === process.env.PASSWORD) {
 		res.status(200).json({ success: true });
 	} else {
@@ -48,24 +48,18 @@ app.get('/tracklist', validateApiKey, (req, res) => {
 	});
 });
 
-function validateApiKey(req: express.Request, res: express.Response, next: express.NextFunction) {
-	const apiKey = req.headers['x-api-key'];
-
-	if (apiKey === process.env.API_KEY) {
-		next();
-	} else {
-		res.status(403).json({ error: 'Acceso denegado. API key inválida.' });
-	}
-}
-
-// Servir archivos estáticos desde "public"
-app.use(express.static(path.join(__dirname, '..', 'public')));
-
+// ✅ Ruta para entregar la API KEY
 app.get('/3GWEH84N3I5RNR8LJNFRWEI', (req, res) => {
-	// Por seguridad, podrías limitar esto por IP, token o referer en producción
 	res.json({ apiKey: process.env.API_KEY });
 });
 
+// ✅ Ruta principal para servir el HTML
+app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
+
+// ✅ Archivos estáticos
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.listen(PORT, () => {
 	console.log(`Servidor corriendo en http://localhost:${PORT}`);
