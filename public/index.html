@@ -33,6 +33,7 @@
 	<div class="tracklist" id="tracklist"></div>
 
 	<script>
+		const API_KEY = window.API_KEY || '';
 		let targetDate = new Date("3333-12-31T20:00:00");
 		let unlocked = false;
 		let attempts = 0;
@@ -84,8 +85,6 @@
 		}
 
 		function updateCountdown() {
-			if (!targetDate) return;
-
 			const now = new Date();
 			const diff = targetDate.getTime() - now.getTime();
 
@@ -140,7 +139,6 @@
 					document.querySelector('.badge').style.display = 'none';
 					document.getElementById('lockIcon').style.display = 'none';
 
-					// Vuelve a cargar el tracklist ya desbloqueado
 					loadTracklist();
 				} else {
 					if (attempts < hints.length) {
@@ -159,9 +157,6 @@
 			}
 		}
 
-		const API_KEY = process.env.API_KEY;
-
-
 		function loadTracklist() {
 			fetch('/tracklist', {
 				headers: {
@@ -178,8 +173,6 @@
 				});
 		}
 
-
-		// Llamada inicial
 		loadTracklist();
 	</script>
 

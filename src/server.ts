@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Middleware para validar API key en rutas privadas del backend
+// Middleware para validar API key (solo si la usas en rutas privadas opcionalmente)
 function validateApiKey(req: express.Request, res: express.Response, next: express.NextFunction) {
 	const apiKey = req.headers['x-api-key'];
 	if (apiKey === process.env.API_KEY) {
@@ -49,19 +49,25 @@ app.get('/tracklist', (req, res) => {
 	});
 });
 
-// Servir el HTML (sin inyectar variables en el frontend)
+// HTML principal — inyecta la API_KEY como variable global JS
 app.get('/', (req, res) => {
 	const htmlPath = path.join(__dirname, '..', 'public', 'index.html');
 	fs.readFile(htmlPath, 'utf8', (err, html) => {
 		if (err) return res.status(500).send('Error cargando HTML');
-		res.send(html);
+
+		const htmlWithKey = html.replace(
+			'</head>',
+			`<script>window.API_KEY="${process.env.API_KEY}"</script></head>`
+		);
+
+		res.send(htmlWithKey);
 	});
 });
 
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Arrancar servidor
+// Start server
 app.listen(PORT, () => {
 	console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
