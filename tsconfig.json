@@ -3,8 +3,11 @@
 		"target": "ES2020",
 		"module": "CommonJS",
 		"outDir": "./dist",
-		"rootDir": "./api",
+		"rootDir": ".", // ✅ Incluye api/, src/, etc.
 		"strict": true,
 		"esModuleInterop": true
-	}
+	},
+	"include": [
+		"api/**/*"
+	] // ✅ Solo incluye tus Serverless Functions
 }
