@@ -13,8 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Servir archivos estáticos desde "public"
-app.use(express.static(path.join(__dirname, '..', 'public')));
+
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -58,6 +57,9 @@ function validateApiKey(req: express.Request, res: express.Response, next: expre
 		res.status(403).json({ error: 'Acceso denegado. API key inválida.' });
 	}
 }
+
+// Servir archivos estáticos desde "public"
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/3GWEH84N3I5RNR8LJNFRWEI', (req, res) => {
 	// Por seguridad, podrías limitar esto por IP, token o referer en producción
