@@ -159,14 +159,25 @@
 			}
 		}
 
+		const API_KEY = window.API_KEY || '';
+
+
 		function loadTracklist() {
-			fetch('/tracklist')
-				.then(res => res.json())
+			fetch('/tracklist', {
+				headers: {
+					'x-api-key': API_KEY
+				}
+			})
+				.then(res => {
+					if (!res.ok) throw new Error('No autorizado');
+					return res.json();
+				})
 				.then(tracks => renderTracklist(tracks))
 				.catch(err => {
 					console.error('Error al cargar tracklist:', err);
 				});
 		}
+
 
 		// Llamada inicial
 		loadTracklist();
