@@ -121,7 +121,7 @@
 			const input = document.getElementById('passwordInput').value;
 
 			try {
-				const response = await fetch('/check-password', {
+				const response = await fetch('/api/check-password', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ password: input })
@@ -130,7 +130,7 @@
 				if (response.ok) {
 					unlocked = true;
 
-					const dateRes = await fetch('/get-target-date');
+					const dateRes = await fetch('/api/get-target-date');
 					const dateData = await dateRes.json();
 					targetDate = new Date(dateData.date);
 
@@ -160,7 +160,7 @@
 		function loadTracklist() {
 			fetch('/api/tracklist', {
 				headers: {
-					'x-api-key': API_KEY
+					'x-api-key': window.API_KEY
 				}
 			})
 				.then(res => {
