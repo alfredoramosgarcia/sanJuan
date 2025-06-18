@@ -33,7 +33,6 @@
 	<div class="tracklist" id="tracklist"></div>
 
 	<script>
-		const API_KEY = window.API_KEY || '';
 		let targetDate = new Date("3333-12-31T20:00:00");
 		let unlocked = false;
 		let attempts = 0;
@@ -62,13 +61,14 @@
 				number.textContent = `${track.number}.`;
 
 				const name = document.createElement('span');
-				name.className = track.blurred && !unlocked ? 'track-name blur' : 'track-name';
-				name.textContent = track.blurred && !unlocked ? '••••••' : track.name;
+				name.className = track.blurred ? 'track-name blur' : 'track-name';
+				name.textContent = track.blurred ? track.nameX : track.name;
 
 				div.appendChild(number);
 				div.appendChild(name);
 
-				if (track.url && (!track.blurred || unlocked)) {
+				// Solo se muestra el botón de reproducir si hay URL y no está blur
+				if (track.url && !track.blurred) {
 					const link = document.createElement('a');
 					link.href = track.url;
 					link.target = '_blank';
@@ -85,6 +85,8 @@
 		}
 
 		function updateCountdown() {
+			if (!targetDate) return;
+
 			const now = new Date();
 			const diff = targetDate.getTime() - now.getTime();
 
@@ -139,6 +141,7 @@
 					document.querySelector('.badge').style.display = 'none';
 					document.getElementById('lockIcon').style.display = 'none';
 
+					// Vuelve a cargar el tracklist ya desbloqueado
 					loadTracklist();
 				} else {
 					if (attempts < hints.length) {
@@ -158,21 +161,15 @@
 		}
 
 		function loadTracklist() {
-			fetch('/api/tracklist', {
-				headers: {
-					'x-api-key': window.API_KEY
-				}
-			})
-				.then(res => {
-					if (!res.ok) throw new Error('No autorizado');
-					return res.json();
-				})
+			fetch('/api/tracklist')
+				.then(res => res.json())
 				.then(tracks => renderTracklist(tracks))
 				.catch(err => {
 					console.error('Error al cargar tracklist:', err);
 				});
 		}
 
+		// Llamada inicial
 		loadTracklist();
 	</script>
 
