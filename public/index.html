@@ -25,6 +25,17 @@
 	<div class="tracklist" id="tracklist"></div>
 
 	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const video = document.getElementById('video-bg');
+			if (video) {
+				video.play().catch(err => {
+					console.warn('Video no se pudo reproducir automáticamente:', err);
+				});
+			}
+		});
+	</script>
+
+	<script>
 		let targetDate = null;
 
 		async function init() {
