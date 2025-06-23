@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 
-// ✅ 1. /api/check-password — comprueba la contraseña
+// 1. /api/check-password — comprueba la contraseña
 app.post('/api/check-password', (req, res) => {
 	const { password } = req.body;
 	if (password === process.env.PASSWORD) {
@@ -21,7 +21,7 @@ app.post('/api/check-password', (req, res) => {
 	}
 });
 
-// ✅ 2. /api/get-target-date — devuelve la fecha objetivo
+// 2. /api/get-target-date — devuelve la fecha objetivo
 app.get('/api/get-target-date', (req, res) => {
 	const date = process.env.TARGET_DATE;
 	if (date) {
@@ -31,7 +31,7 @@ app.get('/api/get-target-date', (req, res) => {
 	}
 });
 
-// ✅ 3. /api/tracklist — devuelve la lista de canciones
+// 3. /api/tracklist — devuelve la lista de canciones
 app.get('/api/tracklist', (req, res) => {
 	const filePath = path.join(__dirname, '../data/tracklist.json');
 	fs.readFile(filePath, 'utf8', (err, data) => {
@@ -43,7 +43,7 @@ app.get('/api/tracklist', (req, res) => {
 	});
 });
 
-// ✅ Inyectar API_KEY en index.html
+// Inyectar API_KEY en index.html
 app.get('/', (req, res) => {
 	const htmlPath = path.join(__dirname, '../public/index.html');
 	fs.readFile(htmlPath, 'utf8', (err, html) => {

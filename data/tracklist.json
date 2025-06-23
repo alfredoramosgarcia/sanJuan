@@ -3,7 +3,7 @@
 		"number": 1,
 		"name": "11",
 		"nameX": "XX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
@@ -24,56 +24,56 @@
 		"number": 4,
 		"name": "MODOAVION ft Insert Soul",
 		"nameX": "XXXXXXXXXX xx Xxxxxx Xxxx",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 5,
 		"name": "santamaria.zip",
 		"nameX": "XXXXXXXXXXXX.XXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 6,
 		"name": "IGOTINMAPOCKET$$$$",
 		"nameX": "XXXXXXXXXXXXXXXXXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 7,
 		"name": "volando bajito",
 		"nameX": "XXXXXXX XXXXXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 8,
 		"name": "MON€Y BACK ft Guilty Asko",
 		"nameX": "XXXXX XXXX xx Xxxxxx Xxxx",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 9,
 		"name": "NONSTOP",
 		"nameX": "XXXXXXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 10,
 		"name": "Mi gente ft Seni",
 		"nameX": "XX XXXXXX xx XXXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	},
 	{
 		"number": 11,
 		"name": "San Juan",
 		"nameX": "XXX XXXX",
-		"blurred": true,
+		"blurred": false,
 		"url": ""
 	}
 ]
