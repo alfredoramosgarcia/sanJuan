@@ -60,7 +60,10 @@
 			const diff = targetDate.getTime() - now.getTime();
 
 			if (diff <= 0) {
-				document.getElementById("counter").innerText = "";
+				const counterElement = document.getElementById("counter");
+				if (counterElement) {
+					counterElement.remove(); // Esto elimina el elemento del DOM
+				}
 				return;
 			}
 
