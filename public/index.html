@@ -18,8 +18,6 @@
 			<source src="video.mp4" type="video/mp4" />
 			Tu navegador no soporta la etiqueta de video.
 		</video>
-
-		<div class="counter" id="counter">0</div>
 	</div>
 
 	<div class="tracklist" id="tracklist"></div>
@@ -62,7 +60,7 @@
 			if (diff <= 0) {
 				const counterElement = document.getElementById("counter");
 				if (counterElement) {
-					counterElement.remove(); // Esto elimina el elemento del DOM
+					counterElement.remove(); // Esto elimina el elemento del DO
 				}
 				return;
 			}
