@@ -1,12 +1,15 @@
 {
-	"compilerOptions": {
-		"target": "ES2020",
-		"module": "CommonJS",
-		"outDir": "./dist",
-		"rootDir": "./api",
-		"esModuleInterop": true
-	},
-	"include": [
-		"api/**/*"
-	]
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "api/**/*",
+    "src/**/*"
+  ]
 }

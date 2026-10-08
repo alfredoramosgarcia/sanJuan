@@ -2,78 +2,78 @@
 	{
 		"number": 1,
 		"name": "11",
-		"nameX": "XX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=jeR3DrqM_MM"
+		"audio": "/audio/01 - INTRO PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=jeR3DrqM_MM",
+		"spotifySearch": "https://open.spotify.com/intl-es/track/5rbZMovmvuiwcEQlx8ekUV?si=4620a09e56d34df2"
 	},
 	{
 		"number": 2,
 		"name": "La vida bonita",
-		"nameX": "La vida bonita",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=WudC3NgloVI"
+		"audio": "/audio/02 - LA VIDA BONITA PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=WudC3NgloVI",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20La%20vida%20bonita"
 	},
 	{
 		"number": 3,
 		"name": "FOCUS",
-		"nameX": "FOCUS",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=GemxqnBN2WY"
+		"audio": "/audio/03 - FOCUS PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=GemxqnBN2WY",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20FOCUS"
 	},
 	{
 		"number": 4,
 		"name": "MODOAVIÓN ft Insert Soul",
-		"nameX": "XXXXXXXXXX xx Xxxxxx Xxxx",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=6rOQYFU6-kk"
+		"audio": "/audio/04 - MODO AVION FEAT INSERT.wav",
+		"url": "https://www.youtube.com/watch?v=6rOQYFU6-kk",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20MODOAVI%C3%93N%20ft%20Insert%20Soul"
 	},
 	{
 		"number": 5,
 		"name": "santamaria.zip",
-		"nameX": "XXXXXXXXXXXX.XXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=XBMmiLl_XQ8"
+		"audio": "/audio/05 - SANTAMARIA.ZIP PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=XBMmiLl_XQ8",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20santamaria.zip"
 	},
 	{
 		"number": 6,
 		"name": "IGOTINMAPOCKET$$$$",
-		"nameX": "XXXXXXXXXXXXXXXXXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=2zJRKLzdSzQ"
+		"audio": "/audio/06 - IGOTINMYPOCKET$$$$ JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=2zJRKLzdSzQ",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20IGOTINMAPOCKET%24%24%24%24"
 	},
 	{
 		"number": 7,
 		"name": "volando bajito",
-		"nameX": "XXXXXXX XXXXXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=Um3enZgZrM0"
+		"audio": "/audio/07 - VOLANDO BAJITO PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=Um3enZgZrM0",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20volando%20bajito"
 	},
 	{
 		"number": 8,
-		"name": "MON€Y BACK ft Guilty Asko",
-		"nameX": "XXXXX XXXX xx Xxxxxx Xxxx",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=0T5KN102gAk"
+		"name": "MONEY BACK ft Guilty Asko",
+		"audio": "/audio/08 - MONEYBACK FEAT ASKO.wav",
+		"url": "https://www.youtube.com/watch?v=0T5KN102gAk",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20MONEY%20BACK%20ft%20Guilty%20Asko"
 	},
 	{
 		"number": 9,
 		"name": "NONSTOP",
-		"nameX": "XXXXXXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=v3WT9H4o9_M"
+		"audio": "/audio/09 - NONSTOP PROD JNULL.wav",
+		"url": "https://www.youtube.com/watch?v=v3WT9H4o9_M",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20NONSTOP"
 	},
 	{
 		"number": 10,
 		"name": "Mi gente ft SENI",
-		"nameX": "XX XXXXXX xx XXXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=2BHc6v4M9hk"
+		"audio": "/audio/10 - MI GENTE FEAT SENI520.wav",
+		"url": "https://www.youtube.com/watch?v=2BHc6v4M9hk",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20Mi%20gente%20ft%20SENI"
 	},
 	{
 		"number": 11,
 		"name": "San Juan",
-		"nameX": "XXX XXXX",
-		"blurred": false,
-		"url": "https://www.youtube.com/watch?v=i5k8vZuYo1k"
+		"audio": "/audio/11 - SAN JUAN.wav",
+		"url": "https://www.youtube.com/watch?v=i5k8vZuYo1k",
+		"spotifySearch": "https://open.spotify.com/search/Hewlar%20San%20Juan"
 	}
 ]
